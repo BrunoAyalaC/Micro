@@ -1,0 +1,42 @@
+# Ignorar todos los directorios de servicios EXCEPTO Ayala-Asistencia
+/services/*
+!/services/Ayala-Asistencia/
+
+# Ignorar archivos generadores
+complete_all_projects.js
+generate_all_projects.js
+generate_complete_projects.js
+generate_projects.ps1
+generate.js
+auto_generate_projects.js
+
+# Ignorar docker-compose
+docker-compose.yml
+docker-compose-complete.yml
+
+# Ignorar documentación general
+PROYECTOS.json
+PROYECTOS_COMPLETOS.md
+ARQUITECTURA_COMPLETA.json
+RESUMEN_EJECUCION.md
+RESUMEN_EJECUCION_FINAL.txt
+VERIFICACION_FINAL.txt
+GUIA_PRUEBAS.md
+README.md
+INICIO.txt
+INICIO_RAPIDO.bat
+INICIO_RAPIDO_COMPLETO.bat
+package-template.json
+
+# Ignorar node_modules y dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ignorar directorios temporales
+.env
+.env.local
+dist/
+build/
+.DS_Store
+Thumbs.db
