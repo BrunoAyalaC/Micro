@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_categorias;
+USE ayala_categorias;
+
 CREATE TABLE IF NOT EXISTS `ms-categorias` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

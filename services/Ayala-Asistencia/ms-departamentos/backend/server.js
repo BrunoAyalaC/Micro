@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 require('dotenv').config();
+const verifyToken = require('./middlewares/authMiddleware');
 
 const app = express();
 app.use(cors());
@@ -82,6 +83,8 @@ app.delete('/api/ms-departamentos/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.get('/health', (req, res) => res.json({ status: 'OK', service: 'ayala-departamentos' }));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

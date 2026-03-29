@@ -1,6 +1,8 @@
-# Ignorar todos los directorios de servicios EXCEPTO Ayala-Asistencia
+# Ignorar todos los directorios de servicios EXCEPTO Ayala-Asistencia, ms-auth y ms-gateway
 /services/*
 !/services/Ayala-Asistencia/
+!/services/ms-auth/
+!/services/ms-gateway/
 
 # Ignorar archivos generadores
 complete_all_projects.js

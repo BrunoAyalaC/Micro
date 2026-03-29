@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_departamentos;
+USE ayala_departamentos;
+
 CREATE TABLE IF NOT EXISTS `ms-departamentos` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

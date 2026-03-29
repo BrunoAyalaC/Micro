@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_horarios;
+USE ayala_horarios;
+
 CREATE TABLE IF NOT EXISTS `ms-horarios` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

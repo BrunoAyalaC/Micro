@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_estadisticas;
+USE ayala_estadisticas;
+
 CREATE TABLE IF NOT EXISTS `ms-estadisticas` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

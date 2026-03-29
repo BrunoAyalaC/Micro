@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_asistencia;
+USE ayala_asistencia;
+
 CREATE TABLE IF NOT EXISTS `ms-asistencia` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

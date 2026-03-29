@@ -3,6 +3,7 @@ const mysql = require('mysql2/promise');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const verifyToken = require('./middlewares/authMiddleware');
 
 const app = express();
 app.use(cors());

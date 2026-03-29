@@ -3,6 +3,7 @@ const mysql = require('mysql2/promise');
 const cors = require('cors');
 const { body, validationResult } = require('express-validator');
 require('dotenv').config();
+const verifyToken = require('./middlewares/authMiddleware');
 
 const app = express();
 const PORT = process.env.PORT || 3003;

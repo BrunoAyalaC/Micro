@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const { body, validationResult } = require('express-validator');
 require('dotenv').config();
+const verifyToken = require('./middlewares/authMiddleware');
 
 const app = express();
 const PORT = process.env.PORT || 3005;

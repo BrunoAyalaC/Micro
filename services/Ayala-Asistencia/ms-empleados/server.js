@@ -25,6 +25,7 @@ app.get('/health', (req, res) => {
 // API Routes
 app.use('/api/empleados', require('./routes/empleados.js')(pool));
 
-app.listen(3021, () => {
-  console.log(`empleados microservice running on port 3021`);
+const PORT = process.env.PORT || 3021;
+app.listen(PORT, () => {
+  console.log(`empleados microservice running on port ${PORT}`);
 });

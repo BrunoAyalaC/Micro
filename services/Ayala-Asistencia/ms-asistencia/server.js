@@ -17,14 +17,18 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Health check
+// Auth Middleware
+const verifyToken = require('./middlewares/authMiddleware');
+
+// Health check (Public)
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', service: 'asistencia', port: 3024 });
 });
 
-// API Routes
-app.use('/api/asistencia', require('./routes/asistencia.js')(pool));
+// API Routes (Protected)
+app.use('/api/asistencia', verifyToken, require('./routes/asistencia.js')(pool));
 
-app.listen(3024, () => {
-  console.log(`asistencia microservice running on port 3024`);
+const PORT = process.env.PORT || 3024;
+app.listen(PORT, () => {
+  console.log(`asistencia microservice running on port ${PORT}`);
 });

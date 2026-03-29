@@ -62,5 +62,32 @@ module.exports = (pool) => {
     }
   });
 
+  // NUEVO: Endpoint para demostrar comunicación inter-servicios (MS1 -> MS3)
+  router.get('/extra/resumen-completo', async (req, res) => {
+    try {
+      const axios = require('axios');
+      const targetUrl = process.env.AYALA_EMPLEADOS_URL || 'http://ayala-empleados:3019';
+      // Llamada interna de Docker a ms-empleados (Petición de Microservicio a Microservicio)
+      const response = await axios.get(`${targetUrl}/api/empleados`);
+      
+      const connection = await pool.getConnection();
+      const [asistencias] = await connection.query(`SELECT * FROM asistencia LIMIT 5`);
+      connection.release();
+
+      res.json({
+        message: "Resumen generado combinando Microservicio Asistencia + Microservicio Empleados",
+        total_empleados: response.data.length,
+        una_muestra_empleados: response.data[0] || "Sin datos",
+        algunas_asistencias: asistencias
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        error: "Error en comunicación inter-servicios", 
+        details: error.message,
+        hint: "Asegúrate de que 'ayala-empleados' esté corriendo en Docker"
+      });
+    }
+  });
+
   return router;
 };

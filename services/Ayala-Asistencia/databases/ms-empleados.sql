@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ayala_empleados;
+USE ayala_empleados;
+
 CREATE TABLE IF NOT EXISTS `ms-empleados` (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
